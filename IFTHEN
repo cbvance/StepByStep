@@ -20,4 +20,4 @@ endif;
 Me.integerTest = b;
 
 'end script execution 
-Me.udaTrigger = false;
+MasterObject.trigger1 = false;
