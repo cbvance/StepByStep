@@ -1,0 +1,43 @@
+    Dim graphicInfo as aaGraphic.GraphicInfo;
+    graphicinfo = new aaGraphic.GraphicInfo;
+    'graphicinfo.OwningObject = Me.Tagname;
+    graphicInfo.Identity = Me.Tagname;
+    'LogMessage("DeviceName " + ValveName); 
+    graphicInfo.GraphicName = "Motor_Faceplate"; 
+    graphicInfo.WindowType = aaGraphic.WindowType.Modeless; 
+    
+    Dim cpValues [3] as aaGraphic.CustomPropertyValuePair;
+    cpValues[1] = new aaGraphic.CustomPropertyValuePair("Start", Me.Tagname + ".Start", False);
+    cpValues[2] = new aaGraphic.CustomPropertyValuePair("Stop", Me.Tagname + ".Stop", False);
+    cpValues[3] = new aaGraphic.CustomPropertyValuePair("Run", Me.Tagname + ".Run", False);
+
+    graphicInfo.CustomProperties = cpValues;
+    graphicInfo.WindowTitle = Me.Tagname;
+    
+   graphicInfo.WindowRelativePosition = 8;
+      ''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+    Dim WinHeight As Integer;
+    Dim WinWidth As Integer;
+    Dim FaceplateHeight As Integer;
+    Dim FaceplateWidth As Integer;
+
+    WinHeight=1050;
+    WinWidth=1680;
+    FaceplateHeight=455;
+    FaceplateWidth=250;
+    if Intouch:$ObjHor > WinWidth-FaceplateWidth then
+     graphicInfo.X =Intouch:$ObjHor+150 - (Intouch:$ObjHor -(WinWidth-FaceplateWidth));
+      else
+     graphicInfo.X =Intouch:$ObjHor+150;
+     endif;
+
+    if Intouch:$ObjVer > WinHeight-FaceplateHeight then
+     graphicInfo.Y =Intouch:$ObjVer+150 - (Intouch:$ObjVer -(WinHeight-FaceplateHeight));
+      else
+     graphicInfo.Y =Intouch:$ObjVer+150;
+     endif;
+     '''''''''''''''''''''''''''''''''''''''''''''''
+
+
+
+    ShowGraphic( graphicInfo );
