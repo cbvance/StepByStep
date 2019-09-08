@@ -1,0 +1,8 @@
+Expression is Running
+Trigger is DataChange
+
+if Running == true then
+   txtStatus.Text = "Running";
+else
+   txtStatus.Text = "Stopped";
+endif;
