@@ -20,7 +20,6 @@ if a then
 'alternative if sets a to value of b if b is true
 else if b == true then 
    a = b;
-else a = true; 'if variable a is false make it true
 endif;
 endif;
 
