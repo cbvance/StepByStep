@@ -5,12 +5,67 @@
 '##############################################
 
 dim Message1 as string;
+dim SearchFor as string;
+dim ReplaceWith as string;
+dim CaseSens as integer;
+dim NumToReplace as integer;
+dim MatchWholeWord as integer;
 
+SearchFor = "Inlet";
+ReplaceWith = "Outlet";
+CaseSens = 0;
+NumToReplace = -1;
+MatchWholeWord = 1;
 
 'Create a message to the user
 Message1 = "Inlet Discharge Pressure Input";
 
-Message1 = StringReplace(Message1,"In","Out",0,-1,0);
-LogMessage(Message1);
+'Every occurrence of In is replaced with Out ignoring case but only whole words.
+LogMessage("Before: " + Message1);
+Message1 = StringReplace(Message1,SearchFor,ReplaceWith,CaseSens,NumToReplace,MatchWholeWord);
+LogMessage("After: " + Message1);
+LogMessage("");
+
+Message1 = "Inlet Discharge Pressure Input";
+SearchFor = "In";
+ReplaceWith = "Out";
+CaseSens = 0;
+NumToReplace = -1;
+MatchWholeWord = 0;
+
+
+'Every occurrence of In is replaced with Out ignoring case or whole words.
+LogMessage("Before: " + Message1);
+Message1 = StringReplace(Message1,SearchFor,ReplaceWith,CaseSens,NumToReplace,MatchWholeWord);
+LogMessage("After: " + Message1);
+LogMessage("");
+
+Message1 = "Inlet Discharge Pressure input";
+SearchFor = "In";
+ReplaceWith = "Out";
+CaseSens = 1;
+NumToReplace = -1;
+MatchWholeWord = 0;
+
+
+'Every occurrence of In is replaced with Out matching case ignoring whole words.
+LogMessage("Before: " + Message1);
+Message1 = StringReplace(Message1,SearchFor,ReplaceWith,CaseSens,NumToReplace,MatchWholeWord);
+LogMessage("After: " + Message1);
+LogMessage("");
+
+Message1 = "Inlet Discharge Pressure input";
+SearchFor = "Input";
+ReplaceWith = "Output";
+CaseSens = 0;
+NumToReplace = -1;
+MatchWholeWord = 1;
+
+
+'Every occurrence of In is replaced with Out where whole word matches.
+LogMessage("Before: " + Message1);
+Message1 = StringReplace(Message1,SearchFor,ReplaceWith,CaseSens,NumToReplace,MatchWholeWord);
+LogMessage("After: " + Message1);
+LogMessage("");
 
 MasterObject.Trigger11 = false;
