@@ -1,0 +1,34 @@
+'##############################################
+'Author: Charles Vance
+'Date: 08/08/2019
+'Script: Tutorial 1 demonstrate element animation
+'##############################################
+
+'increment the attributes only when the enable boolean is true
+if Me.Tutorial1Enable == true then
+   
+   'increment an integer on each pass and reset when it reaches 100
+   if Me.udaintegerTest >= 10 then 
+      Me.udaintegerTest = 0;
+   endif;
+
+   Me.udaintegerTest = Me.udaintegerTest + 1;
+   
+   'increment a float on each pass and reset when it reaches 100
+   if Me.udafloatTest >= 10 then 
+      Me.udafloatTest = 0;
+   endif;
+
+   Me.udafloatTest = Me.udafloatTest + .5;
+
+  'toggle a boolean on each pass 
+
+  if Me.udaboolTest == true then
+    Me.udaboolTest = false;
+  else
+    Me.udaboolTest = true;
+  endif;
+
+LogMessage("udaIntegerTest = " + Me.udaintegerTest);
+
+endif;
