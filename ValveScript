@@ -1,0 +1,24 @@
+'#################################################
+'
+' StatusUpdate Script executes any time switch 
+' changes states
+' Tutorial 2 Motorized Valve
+' 10/21/2019 
+' Charles Vance
+'
+'#################################################
+
+if OpenSW == true and ClosedSW == false then
+     Status = 1;
+else if OpenSW == false and ClosedSW == true then
+     Status = 2;
+else if OpenSW == false and ClosedSW == false then
+     Status = 4;
+else if OpenSW == true and ClosedSW == true then
+     Status = 3;
+endif;
+endif;
+endif;
+endif;
+
+StatusUpdate = false;
