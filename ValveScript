@@ -10,7 +10,7 @@
 
 if OpenSW == true and ClosedSW == false then
      Status = 1;
-	 txtStatus.Text = "OPEN";
+     txtStatus.Text = "OPEN";
 else if OpenSW == false and ClosedSW == true then
      Status = 2;
      txtStatus.Text = "CLOSED";
