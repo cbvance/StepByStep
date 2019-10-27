@@ -10,12 +10,16 @@
 
 if OpenSW == true and ClosedSW == false then
      Status = 1;
+	 txtStatus.Text = "OPEN";
 else if OpenSW == false and ClosedSW == true then
      Status = 2;
+     txtStatus.Text = "CLOSED";
 else if OpenSW == false and ClosedSW == false then
      Status = 4;
+     txtStatus.Text = "TRAVEL";
 else if OpenSW == true and ClosedSW == true then
      Status = 3;
+     txtStatus.Text = "TROUBLE";
 endif;
 endif;
 endif;
