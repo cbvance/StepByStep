@@ -1,0 +1,11 @@
+'###################################
+'
+' Initialization Script runs when
+' graphic symbol is first shown and 
+' anytime the Owner property changes
+' assigning the base symbol to the
+' object referenced in the Owner property
+'
+'###################################
+
+Base_TestSymbol11.OwningObject = Owner;
