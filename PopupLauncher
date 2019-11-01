@@ -1,0 +1,55 @@
+Intouch:MinSecurityLevel = 999;  
+if Intouch:$AccessLevel > Intouch:MinSecurityLevel then
+
+    Dim graphicInfo as aaGraphic.GraphicInfo;
+    graphicinfo = new aaGraphic.GraphicInfo;
+    graphicinfo.OwningObject = "4108X_CV1_WireFrame";
+    graphicInfo.Identity = ValveNameName;
+    LogMessage("DeviceName " + ValveName); 
+    graphicInfo.GraphicName = "4108X_CV1_Faceplate"; 
+    graphicInfo.WindowType = aaGraphic.WindowType.Modeless; 
+    
+    Dim cpValues [8] as aaGraphic.CustomPropertyValuePair;
+    cpValues[1] = new aaGraphic.CustomPropertyValuePair("DeviceName", ValveName, true);
+    cpValues[2] = new aaGraphic.CustomPropertyValuePair("OpenCommand", "Intouch:" + HSOName + ".Name", False);
+    cpValues[3] = new aaGraphic.CustomPropertyValuePair("CloseCommand", "Intouch:" + HSCName + ".Name", False);
+    cpValues[4] = new aaGraphic.CustomPropertyValuePair("AUTOCommand", "Intouch:" + HSAUTName + ".Name", False);
+    cpValues[5] = new aaGraphic.CustomPropertyValuePair("MANCommand", "Intouch:" + HSMANName + ".Name", False);
+    cpValues[6] = new aaGraphic.CustomPropertyValuePair("CmdName", "Intouch:" + ValveNameName + ".Name", False);
+    cpValues[7] = new aaGraphic.CustomPropertyValuePair("Faceplate", FaceplateName, True);
+    cpValues[8] = new aaGraphic.CustomPropertyValuePair("StopCommand", "Intouch:" + HSSName + ".Name", False);
+    graphicInfo.CustomProperties = cpValues;
+    graphicInfo.WindowTitle = ValveName;
+    
+   graphicInfo.WindowRelativePosition = 8;
+      ''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+    Dim WinHeight As Integer;
+    Dim WinWidth As Integer;
+    Dim FaceplateHeight As Integer;
+    Dim FaceplateWidth As Integer;
+
+    WinHeight=1050;
+    WinWidth=1680;
+    FaceplateHeight=455;
+    FaceplateWidth=250;
+    if Intouch:$ObjHor > WinWidth-FaceplateWidth then
+     graphicInfo.X =Intouch:$ObjHor+150 - (Intouch:$ObjHor -(WinWidth-FaceplateWidth));
+      else
+     graphicInfo.X =Intouch:$ObjHor+150;
+     endif;
+
+    if Intouch:$ObjVer > WinHeight-FaceplateHeight then
+     graphicInfo.Y =Intouch:$ObjVer+150 - (Intouch:$ObjVer -(WinHeight-FaceplateHeight));
+      else
+     graphicInfo.Y =Intouch:$ObjVer+150;
+     endif;
+     '''''''''''''''''''''''''''''''''''''''''''''''
+
+
+
+    ShowGraphic( graphicInfo );
+    LogMessage("DeviceName " + ValveName);
+
+else
+    Intouch:PopUpName = "AccessDenied";
+endif;
