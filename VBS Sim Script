@@ -1,0 +1,91 @@
+
+ctr = ctr + 1
+SetRegisterValue 3,0,ctr
+if ctr = 100 then
+ctr = 0
+end if
+ 
+
+'MOV101 Control
+
+'Get the OpenCmd address - 1
+Open = GetRegisterValue(0,06)
+If Open = 1 then
+   SetRegisterValue 1,05,1
+   SetRegisterValue 1,06,0
+   SetRegisterValue 0,06,0
+End if
+
+
+'Get the CloseCmd address - 1
+Close = GetRegisterValue(0,07)
+If Close = 1 then
+   SetRegisterValue 1,05,0
+   SetRegisterValue 1,06,1
+   SetRegisterValue 0,07,0
+End if
+
+
+'MOV102 Control
+
+'Get the OpenCmd address - 1
+Open = GetRegisterValue(0,07)
+If Open = 1 then
+   SetRegisterValue 1,07,1
+   SetRegisterValue 1,08,0
+   SetRegisterValue 0,07,0
+End if
+
+
+'Get the CloseCmd address - 1
+Close = GetRegisterValue(0,08)
+If Close = 1 then
+   SetRegisterValue 1,07,0
+   SetRegisterValue 1,08,1
+   SetRegisterValue 0,08,0
+End if
+
+'MOV103 Control
+
+'Get the OpenCmd address - 1
+Open = GetRegisterValue(0,12)
+If Open = 1 then
+   SetRegisterValue 1,09,1
+   SetRegisterValue 1,10,0
+   SetRegisterValue 0,12,0
+End if
+
+
+'Get the CloseCmd address - 1
+Close = GetRegisterValue(0,13)
+If Close = 1 then
+   SetRegisterValue 1,09,0
+   SetRegisterValue 1,10,1
+   SetRegisterValue 0,13,0
+End if
+
+'PUMP101 Control
+Start = GetRegisterValue(0,4) 
+If Start = 1 then
+   SetRegisterValue 1,03,1
+   SetRegisterValue 0,4,0
+End If
+
+Stopped = GetRegisterValue(0,5) 
+If Stopped = 1 then
+   SetRegisterValue 1,03,0
+   SetRegisterValue 0,5,0
+End If
+
+'MIXER101 Control
+Start = GetRegisterValue(0,2) 
+If Start = 1 then
+   SetRegisterValue 1,02,1
+   SetRegisterValue 0,2,0
+End If
+
+Stopped = GetRegisterValue(0,3) 
+If Stopped = 1 then
+   SetRegisterValue 1,02,0
+   SetRegisterValue 0,3,0
+End If
