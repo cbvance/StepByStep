@@ -1,0 +1,45 @@
+Dim graphicInfo as aaGraphic.GraphicInfo;
+graphicinfo = new aaGraphic.GraphicInfo;
+graphicinfo.OwningObject = Me.Tagname; 
+graphicInfo.GraphicName = "CommandPopup"; 
+graphicInfo.WindowType = aaGraphic.WindowType.Modeless; 
+
+
+
+
+Dim cpValues [8] as aaGraphic.CustomPropertyValuePair;
+cpValues[2] = new aaGraphic.CustomPropertyValuePair("OpenCommand", Me.Tagname + ".OpenCmd", false);
+cpValues[3] = new aaGraphic.CustomPropertyValuePair("CloseCommand", Me.Tagname + ".CloseCmd", false);
+
+
+graphicInfo.CustomProperties = cpValues;
+graphicInfo.WindowTitle = Me.Tagname;
+    
+graphicInfo.WindowRelativePosition = 8;
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+Dim WinHeight As Integer;
+Dim WinWidth As Integer;
+Dim FaceplateHeight As Integer;
+Dim FaceplateWidth As Integer;
+
+
+WinHeight=768;
+WinWidth=1024;
+'FaceplateHeight=455;
+'FaceplateWidth=250;
+if Intouch:$ObjHor > WinWidth-FaceplateWidth then
+   graphicInfo.X =Intouch:$ObjHor+150 - (Intouch:$ObjHor -(WinWidth-FaceplateWidth));
+else
+   graphicInfo.X =Intouch:$ObjHor+150;
+endif;
+
+
+if Intouch:$ObjVer > WinHeight-FaceplateHeight then
+   graphicInfo.Y =Intouch:$ObjVer+150 - (Intouch:$ObjVer -(WinHeight-FaceplateHeight));
+else
+   graphicInfo.Y =Intouch:$ObjVer+150;
+endif;
+'''''''''''''''''''''''''''''''''''''''''''''''
+ShowGraphic( graphicInfo );
+
+
