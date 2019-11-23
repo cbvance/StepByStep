@@ -29,20 +29,20 @@ End if
 'MOV102 Control
 
 'Get the OpenCmd address - 1
-Open = GetRegisterValue(0,07)
+Open = GetRegisterValue(0,09)
 If Open = 1 then
    SetRegisterValue 1,07,1
    SetRegisterValue 1,08,0
-   SetRegisterValue 0,07,0
+   SetRegisterValue 0,09,0
 End if
 
 
 'Get the CloseCmd address - 1
-Close = GetRegisterValue(0,08)
+Close = GetRegisterValue(0,10)
 If Close = 1 then
    SetRegisterValue 1,07,0
    SetRegisterValue 1,08,1
-   SetRegisterValue 0,08,0
+   SetRegisterValue 0,10,0
 End if
 
 'MOV103 Control
