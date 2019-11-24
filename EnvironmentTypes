@@ -1,0 +1,51 @@
+'################################################################
+'
+' Script Environment - A script to demonstrate accessing the
+'                      Dot Net Environment Namespace to extract 
+'                      information about the OS and target computer
+'
+'################################################################
+dim i as integer;
+
+'give the object time to stabilize before contacting dot net
+if Me.Environment.ExecutionCnt >= 2 then
+'provision the correct class variable from dot net
+dim MachineName as string;
+dim UserName as string;
+dim DomainName as string;
+dim CurrentDirectory as string;
+dim SystemDirectory as string;
+dim drives[10] as string;
+
+'Use a try catch statement in case something goes wrong
+try
+'provision the correct class variable from dot net
+  MachineName = System.Environment.MachineName;
+  UserName = System.Environment.UserName;
+  DomainName = System.Environment.UserDomainName;
+  CurrentDirectory = System.Environment.CurrentDirectory;
+  SystemDirectory = System.Environment.SystemDirectory; 
+  drives = System.Environment.GetLogicalDrives();
+
+'assign the data retreived form the class varibales into object UDAs
+  Me.MachineName = MachineName;
+  Me.UserName = UserName;
+  Me.DomainName = DomainName;
+  Me.CurrentDirectory = CurrentDirectory;
+  Me.SystemDirectory = SystemDirectory;
+
+'iterate through each array elemnt to load the array UDA
+  for i = 1 to 9 
+    LogMessage(drives[i]);
+    Me.Drives[i] = drives[i];
+  next;
+
+catch
+  'if there was a problem stop script execution
+  Me.initialize = false;
+endtry;
+
+'stop script execution
+Me.initialize = false;
+
+endif;
