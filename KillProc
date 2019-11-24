@@ -1,0 +1,33 @@
+'################################################################
+'
+' Script GetProcs - A script to demonstrate retrieval pf process
+'                      names and Ids 
+'
+'################################################################
+
+'let the object stabalize
+if Me.GetProcs.ExecutionCnt > 3 then
+dim i as integer;
+
+'provision the Diagnostic.Pricess class
+dim proclist[301] as System.Diagnostics.Process;
+'load the process object array with the processes
+proclist = System.Diagnostics.Process.GetProcesses();
+
+'the number of processes is unknown so using try catch
+'prevents errors from appearing in the log if we overrun the array
+try
+
+  'iterate though the arrays to load the object UDAs
+  for i = 1 to 299
+    LogMessage(i + " " + proclist[i].ProcessName);
+    Me.ProcessNames[i] = proclist[i].ProcessName;
+    Me.ProcessIDs[i] = proclist[i].Id;
+  next;
+catch
+  Me.runGetProcs = false;
+endtry;
+
+'stop script execution
+Me.runGetProcs = false;
+endif;
