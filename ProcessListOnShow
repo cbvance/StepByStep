@@ -1,0 +1,16 @@
+'###########################
+'  OnShow load the Process
+'  Names into the combo box
+'
+'#########################
+
+
+
+dim i as integer;
+
+for i = 1 to 300
+ComboBox1.AddItem(Me.ProcessNames[i]);
+next;
+
+ProcessName = Me.ProcessNames[ComboBox1.SelectedIndex+1];
+ProcessID = Me.ProcessIDs[ComboBox1.SelectedIndex+1];
