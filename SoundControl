@@ -1,0 +1,20 @@
+'########################################
+'
+'  SoundControl script
+'  Script to activate the sound control 
+'  trigger based on two setpoints
+'
+'########################################
+
+
+'when the level is above the sound on 
+' setpoint turn the trigger on
+if Level >= SoundOn then
+  SoundControl_001.SoundTrigger = true;
+endif;
+
+'when the level is above the sound off
+' setpint turn the trigger off
+if Level >= SoundOff then
+  SoundControl_001.SoundTrigger = false;
+endif;
