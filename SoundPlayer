@@ -1,0 +1,23 @@
+'#####################################
+'
+'  Playsound script
+'  executes when the SundTrigger 
+'  property is true runing the wave 
+'  file configured in teh SoundFile 
+'  string property
+'
+'#####################################
+
+'create an instance of soundplayer 
+dim sp as System.Media.SoundPlayer;
+sp = new System.Media.SoundPlayer();
+
+'write a message to the logger
+LogMessage(SoundFile);
+
+'load the sound file to play
+sp.SoundLocation = SoundFile;
+
+'play the sound file
+sp.Play();
+
