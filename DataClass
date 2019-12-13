@@ -1,0 +1,31 @@
+/*##################################################################################################
+ * 
+ * 
+ * 
+ *   Data Class exposes public properties to provide environment data
+ * 
+ #################################################################################################*/
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+
+namespace Environment
+{
+    //Data class 
+    public class Data
+    {
+
+        //public properties to expose environment data
+        public String MachineName = System.Environment.MachineName;
+        public String UserName = System.Environment.UserName;
+        public String DomainName = System.Environment.UserDomainName;
+        public String CurrentDirectory = System.Environment.CurrentDirectory;
+        public String SystemDirectory = System.Environment.SystemDirectory; 
+        public String[] drives = System.Environment.GetLogicalDrives();
+
+    }
+}
