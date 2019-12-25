@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Environment;
+
+
+
+
+namespace testEnvironmentClass
+{
+    class Program
+    {
+        
+        static void Main(string[] args)
+        {
+            Environment.Data env = new Environment.Data();
+
+            String CurrentDirectory = env.CurrentDirectory;
+            String SystemDirectory = env.SystemDirectory;
+            String MachineName = env.MachineName;
+            String UserName = env.UserName;
+            String DomainName = env.DomainName;
+            String[] Drives = env.drives;
+
+
+            Console.WriteLine(CurrentDirectory);
+            Console.WriteLine(SystemDirectory);
+            Console.WriteLine(MachineName);
+            Console.WriteLine(UserName);
+            Console.WriteLine(DomainName);
+
+            foreach( String drivename in Drives)
+            {
+                Console.WriteLine(drivename);
+            }
+
+            Console.Read();
+
+
+
+
+
+
+        }
+    }
+}
