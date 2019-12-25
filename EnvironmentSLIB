@@ -1,0 +1,31 @@
+'################################################################
+'
+' Script Environment - A script to demonstrate accessing the
+'                      Dot Net Environment Namespace to extract 
+'                      information about the OS and target computer
+'					   using a custom SLIB
+'################################################################
+dim i as integer;
+
+dim ed as Environment.Data;
+ed = new Environment.Data();
+
+
+'assign the data retreived form the class varibales into object UDAs
+  Me.MachineName = ed.MachineName;
+  Me.UserName = ed.UserName;
+  Me.DomainName = ed.DomainName;
+  Me.CurrentDirectory = ed.CurrentDirectory;
+  Me.SystemDirectory = ed.SystemDirectory;
+
+'iterate through each array elemnt to load the array UDA
+try
+  for i = 1 to 9 
+    LogMessage(ed.drives[i]);
+    Me.Drives[i] = ed.drives[i];
+  next;
+catch
+endtry;
+
+'stop script execution
+Me.initialize = false;
